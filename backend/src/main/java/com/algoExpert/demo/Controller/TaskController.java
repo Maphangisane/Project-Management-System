@@ -29,4 +29,10 @@ public class TaskController {
         return taskService.getAllTask();
     }
 
+    //delete task
+    @DeleteMapping("/deleteTaskById/{task_id}")
+    public List<Task> deleteTaskById(@PathVariable Integer task_id){
+       return  taskService.deleteTaskById(task_id);
+    }
+
 }

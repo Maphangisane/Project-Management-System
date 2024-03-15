@@ -30,7 +30,7 @@ public class CommentService {
     private MemberRepository memberRepository;
 
 //    create comment
-    public Comment createComment(Comment comment,int member_id,int task_id){
+    public Task createComment(Comment comment,int member_id,int task_id){
         Member findMember = memberRepository.findById(member_id).get();
         Task task = taskRepository.findById(task_id).get();
         User user = userRepository.findById(findMember.getUser_id()).get();
@@ -38,9 +38,12 @@ public class CommentService {
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MMM/yyyy HH:mm:ss");
         comment.setDate_created(simpleDateFormat.format(new Date()));
-        comment.setTask(task);
+        List<Comment> commentList = task.getComments();
+        commentList.add(comment);
 
-        return commentRepository.save(comment);
+        task.setComments(commentList);
+
+        return taskRepository.save(task);
     }
 
 //    get all comments

@@ -90,7 +90,7 @@
     color: #666;
 }
 
-.button_section button{
+.button_section a{
     border-radius: var(--round-border-radius);
     border: none;
     background-color: var(--blue-color);
@@ -98,6 +98,8 @@
     font-weight: var(--header-font-weight);
     cursor: pointer;
     margin-top: 3rem;
+    display: inline-block;
+    text-decoration: none;
     padding: 14px 2rem;
 }
 /* .dashed-line-1 {

@@ -2,6 +2,8 @@ package com.algoExpert.demo.Service;
 
 import com.algoExpert.demo.Entity.*;
 import com.algoExpert.demo.Repository.*;
+import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,9 @@ public class TaskService {
 
      @Autowired
      private TableRepository tableRepository;
+
+     @Autowired
+     private CommentRepository commentRepository;
 
     @Autowired
     private MemberRepository memberRepository;
@@ -38,6 +43,21 @@ public class TaskService {
         return tableRepository.save(table);
     }
 
+    //delete task
+    @Transactional
+    public List<Task> deleteTaskById(Integer taskId) {
+        Task task = taskRepository.findById(taskId).orElse(null);
+        if (task != null) {
+            List<Comment> comments = task.getComments();
+            if (comments != null) {
+                for (Comment comment : comments) {
+                    commentRepository.delete(comment);
+                }
+            }
+            taskRepository.delete(task);
+        }
+        return taskRepository.findAll();
+    }
 //    get all tasks
     public List<Task> getAllTask(){
         return taskRepository.findAll();

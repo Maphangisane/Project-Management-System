@@ -15,20 +15,17 @@ public class Comment {
     @Column(length = 1000)
     private String comment;
 
-    @ManyToOne
-    private Task task;
 
 //    constructors
 
     public Comment() {
     }
 
-    public Comment(int comment_id, String username, String date_created, String comment, Task task) {
+    public Comment(int comment_id, String username, String date_created, String comment) {
         this.comment_id = comment_id;
         this.username = username;
         this.date_created = date_created;
         this.comment = comment;
-        this.task = task;
     }
 
     public int getComment_id() {
@@ -63,11 +60,5 @@ public class Comment {
         this.comment = comment;
     }
 
-    public Task getTask() {
-        return this.task;
-    }
 
-    public void setTask(Task task) {
-        this.task = task;
-    }
 }

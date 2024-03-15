@@ -78,9 +78,10 @@
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     width: 250px;
     z-index: 3;
+    overflow: hidden;   
+}
+.filter_person_wrapper{
     padding: 10px 20px;
-    overflow: hidden;
-    
 }
 .person_filter_box h6{
     color: var(--subheader-font-size);
@@ -139,11 +140,13 @@
     right: 0;
     width:300px;
     top: 45px;
-    padding: 20px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     z-index: 6;
     background-color: #fff;
     overflow: hidden;
+}
+.member_invite_wrapper{
+    padding: 20px;
 }
 .invite_members h5, .invite_members h6{
     font-size: 14px;
@@ -210,7 +213,7 @@
 .project_table{
     width: 100%;
     border: var(--box-border);
-    border-bottom: none;
+
     border-radius: 10px;
 }
 .project_table .page-row{
@@ -219,6 +222,9 @@
 }
 .col_name_row{
     position: relative;
+}
+.project_table  .page-row:last-child{
+    border-bottom: none;
 }
 .field_name{
     text-align: center;
@@ -235,6 +241,7 @@
     width: 100%;
     position: relative;
     z-index: 1;
+    border: none;
 }
 .status{position: relative;cursor: pointer;}
 .status_dropdown{

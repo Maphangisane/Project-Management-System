@@ -47,9 +47,9 @@ function Guide() {
                     <p> dui enim natoque molestie volutpat sollicitudin tellus semper. Dolor nibh mauris sed sed tempor. Duis amet mauris morbi neque.</p>
                 </div>
               </div>
-            <div className="button_section">
-              <button>Create Project</button>
-            </div>
+              <div className="button_section">
+                <a href='createproject'>Create Project</a>
+              </div>
             </div>
             
             {/* </div> */}

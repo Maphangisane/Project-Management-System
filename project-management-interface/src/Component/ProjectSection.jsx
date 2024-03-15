@@ -1,4 +1,5 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
+import axios from 'axios';
 
 function ProjectSection() {
     const [statusValue, setStatusValue] = useState("Done");
@@ -10,6 +11,34 @@ function ProjectSection() {
         {rowId:0}, {statusIndex:0}
     ]);
 
+    const [oneProject, setoneProject] = useState( {project_id: "",
+    title: "",
+    description: "",
+    tables: [
+        {
+            tasks:[{}]
+        }
+    ]
+});
+
+    useEffect(() => {
+        const projectId = sessionStorage.getItem("projectId");
+        const fetchProject = async () => {
+            try {
+                const response = await axios.get(`http://localhost:8080/project/getSingleProject/${projectId}`);
+                setoneProject(response.data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+        if(projectId){
+            fetchProject();
+        }
+        return () => {
+        }
+    }, []);
+ 
+   
 
     const [tables, settables] = useState([[
         {table_name:"Table Name"}, {tasks:[{task_id:1, title:"",Owner:"",Description:"",Start_date:"",End_date:""},
@@ -83,7 +112,7 @@ function ProjectSection() {
                         </div>
                     </div>
                 </div>
-                <h6 className='page-section-header'>School project</h6>
+                <h6 className='page-section-header'>{oneProject.title}</h6>
                 <div className="filter_project_section">
                     <div className="page-row project_filter_row">
                         <div className="table-filters">
@@ -96,10 +125,12 @@ function ProjectSection() {
                                     <i className="lni lni-users"></i>
                                     <p onClick={()=>toogleDropDownBoxes("filterBox",100,0)}>Filter by person</p>
                                     <div style={{height:dropDownBoxesHeight[4].filterBox}} className="person_filter_box">
-                                        <h6>Select member to filter with:</h6>
-                                        {projectMembers.map((name,i)=>
-                                           <p>{name}</p>
-                                        )}
+                                        <div className="filter_person_wrapper">
+                                            <h6>Select member to filter with:</h6>
+                                            {projectMembers.map((name,i)=>
+                                            <p>{name}</p>
+                                            )}
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="filter_sort table_filter_col">
@@ -115,19 +146,21 @@ function ProjectSection() {
                                 )}
                             </div> 
                             <div  className="invite_btn">
-                                <p onClick={()=>toogleDropDownBoxes("inviteBox", 200,0)}>invite <i class="lni lni-circle-plus"></i></p>
+                                <p onClick={()=>toogleDropDownBoxes("inviteBox", 250,0)}>invite <i class="lni lni-circle-plus"></i></p>
                                 <div style={{height: dropDownBoxesHeight[3].inviteBox}} className="invite_members">
-                                    <h5>Search members to add by name  </h5>
-                                    <form action=""> <input onChange={(e)=>showSearchedMember(e)} type="text" placeholder='Please search member' /><input type="submit" value="search"/></form>
-                                    {memeberFound.map((memberName,i)=>
-                                    <p onClick={()=>addMemberToProject(memberName)} >{memberName}</p>
-                                    )}
-                                    <h6>List of project members</h6>
-                                    {
-                                        projectMembers.map((names,index)=>
-                                          <p>{names}</p>
-                                        )
-                                    }
+                                   <div className="member_invite_wrapper">
+                                        <h5>Search members to add by name  </h5>
+                                        <form action=""> <input onChange={(e)=>showSearchedMember(e)} type="text" placeholder='Please search member' /><input type="submit" value="search"/></form>
+                                        {memeberFound.map((memberName,i)=>
+                                        <p onClick={()=>addMemberToProject(memberName)} >{memberName}</p>
+                                        )}
+                                        <h6>List of project members</h6>
+                                        {
+                                            projectMembers.map((names,index)=>
+                                            <p>{names}</p>
+                                            )
+                                        }
+                                   </div>
                                 </div>
                             </div>   
                             <button onClick={createTable}>
@@ -138,9 +171,9 @@ function ProjectSection() {
                     </div>
                 </div>
                 {
-                    tables.map((tableItem,tableIndex)=>
+                  oneProject.tables.map((table,table_index)=>
                         <div className="table_section">
-                            <h6 id='table_title'>{tableItem[0].table_name}</h6>
+                            <h6 id='table_title'>{table.table_name}</h6>
                             <div className="project_table">
                                 <div className="page-row col_name_row">
                                     <div style={{height:dropDownBoxesHeight[1].addColumn}}  className="add-table-column">
@@ -163,7 +196,7 @@ function ProjectSection() {
                                     <div className='more  more-col' onClick={()=>toogleDropDownBoxes("addColumn", 160)}> <i className="lni lni-more"></i></div>
                                 </div>
                             {
-                            tableItem[1].tasks.map((task,taskIndex)=>
+                            table.tasks.map((task,taskIndex)=>
                               <div>
                                   <div  className="page-row table_task_row">
                                     <div style={{height:dropDownBoxesHeight[6].rowId == task.task_id ? dropDownBoxesHeight[2].editRow : 0 }} className="edit_task_box">
@@ -205,7 +238,9 @@ function ProjectSection() {
                         
                     </div>
                 </div>
-                    )
+                  )
+                  
+                    
                 }
             </div>
         </div>
