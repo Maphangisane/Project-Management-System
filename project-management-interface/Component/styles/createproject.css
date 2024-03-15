@@ -1,0 +1,64 @@
+.create-project-section{
+    background-color: var(--container-color);
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem auto;
+}
+.Create_Project_Header{
+    margin-top: 4rem;
+    margin-left: 2rem;
+    margin: 30px 60px;
+}
+.Create_Project_Header h1{
+    font-family: Roboto, sans-serif;
+    font-weight:  var(--header-font-weight);   
+}
+.Create_Project_Para{
+    margin: 10px 60px;
+    width: 80%;
+}
+.Create_Project_Para p{
+    font-family: Roboto, sans-serif;
+    font-weight:  var(--header-font-weight);  
+}
+
+.Form_Title_section{
+    margin: 10px 60px;
+}
+.create-project-section .Form_Title_section p{
+    font-size: 2rem;
+    font-family: Roboto, sans-serif;
+}
+.Form_Description_section{
+    margin: 10px 60px;
+}
+.create-project-section .Form_Description_section p{
+    font-size: 2rem;
+    font-family: Roboto, sans-serif;
+}
+.Form_Title_section input {
+    height: 3rem;
+    width: 80%;
+    border-radius: var(--round-border-radius);
+    border: var(--box-border);
+}
+.Form_Description_section textarea{
+    height: 10rem;
+    width: 80%;
+    border-radius: var(--round-border-radius);
+    border: var(--box-border);
+}
+.create_project_button_section{
+    margin: 10px 60px;
+}
+.create-project-section .create_project_button_section button{
+    height: 3rem;
+    border-radius: var(--round-border-radius);
+    border: none;
+    background-color: var(--blue-color);
+    width: 10rem;
+    margin: 10px auto;
+    color: var(--container-color);
+}

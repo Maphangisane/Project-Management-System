@@ -5,6 +5,9 @@
     padding-top: 5px;
     height: 100%;
 }
+.project-section .container{
+    position: relative;
+}
 .page-section-header{
     font-size: var(--page-font-size);
     font-weight: var(--header-font-weight);
@@ -76,6 +79,8 @@
     width: 250px;
     z-index: 3;
     padding: 10px 20px;
+    overflow: hidden;
+    
 }
 .person_filter_box h6{
     color: var(--subheader-font-size);
@@ -138,6 +143,7 @@
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     z-index: 6;
     background-color: #fff;
+    overflow: hidden;
 }
 .invite_members h5, .invite_members h6{
     font-size: 14px;
@@ -195,9 +201,6 @@
     margin-right: 6px;
     font-size: 16px;
 }
-.table_section{
-
-}
 #table_title{
     font-size: 14px;
     color: var(--title-color);
@@ -207,14 +210,15 @@
 .project_table{
     width: 100%;
     border: var(--box-border);
+    border-bottom: none;
     border-radius: 10px;
 }
 .project_table .page-row{
     justify-content: space-between;
     border-bottom: var(--box-border);
 }
-.project_table .page-row:last-child{
-    border-bottom: none;
+.col_name_row{
+    position: relative;
 }
 .field_name{
     text-align: center;
@@ -229,23 +233,26 @@
 }
 .field_name input{
     width: 100%;
-    border: none;
-    height: 100%;
-}
-.col_name_row{
     position: relative;
+    z-index: 1;
 }
-
 .status{position: relative;cursor: pointer;}
-.status_feilds{
+.status_dropdown{
     position: absolute;
     left: 0;
+    z-index: 3;
     top: 40px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     width: 100%;
-    display: none;
+    overflow: hidden;
+    transition: all 500ms;
+    background-color: #fff;
 }
-.status_feilds span{
+.status_dropdown_content{
+    background-color: #fff;
+    margin: 20px 10px;
+}
+.status_dropdown span{
     display: block;
 }
 #Done{
@@ -287,33 +294,32 @@
     top: 10px;
     cursor: pointer;
 }
-.table_task_row{position: relative;}
 
 .edit_task_box, .add-table-column{
     position: absolute;
     z-index: 3;
     background-color: #fff;
-    padding:10px 20px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    transition: all 1s;
+    transition: all 500ms;
+    overflow: hidden;
+    transition: all 2s;
 }
 .edit_task_box{
     left: -160px;
-    width: 100px;
+    width: 150px;
 }
  .add-table-column{
     right: 0;
     top: 40px;
-    width: 150px;
-  
+    width: 230px;
  }
  .add-table-column h6{
     font-size: 13px;
     font-weight: 400;
     color: var(--title-color);
-    margin-bottom: 7px;
+    margin: 25px 25px 25px 15px;
  }
-.edit_task_box p,  .add-table-column p{cursor: pointer;}
+.edit_task_box p, .add-table-column p{cursor: pointer; margin: 15px 25px;}
 .edit_task_box span,  .add-table-column span{
     font-size: 13px;
     color: #bbb;
@@ -330,5 +336,118 @@
     top: 4px;
     right: -11px;
     transform: rotate(45deg);
- 
+}
+.comment_wrapper{
+    position: absolute;
+    width: 50%;
+    background-color: #fff;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 10px 0 40px 0;
+    font-family: "Roboto", sans-serif;
+    z-index: 7;
+    display: none;
+    right: -2px;
+}
+.comment_wrapper .lni-close{
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    cursor: pointer;
+}
+#comment_section_title{
+    font-size: 16px;
+    border-bottom: 1px solid #eee;
+    padding: 0 60px 20px 60px;
+    font-weight: var(--header-font-weight);
+}
+.comment-section{
+    margin: 0 60px;
+}
+.comment-section form{
+    border: var(--box-border);
+    width: 100%;
+    border-radius:10px;
+}
+.comment-section textarea{
+    margin: 25px;
+    width: 93%;
+    border: none;
+}
+.comment-section textarea::placeholder{
+    font-size: 13px;
+    font-family: "Roboto", sans-serif;
+    color: #aaa;
+    font-weight: 300;
+}
+.comment-buttons{
+    border-top: var(--box-border);
+    padding: 10px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.letter_buttons span{
+    margin-right: 10px;
+    color: var(--subheader-font-size);
+    cursor: pointer;
+}
+.letter_buttons span:first-child{
+    font-weight: 600;
+}
+.letter_buttons span:last-child{
+    text-decoration: underline;
+}
+.comment-buttons  button{
+    padding: 8px 8px;
+    width: 140px;
+    border-radius: var(--round-border-radius);
+    border: none;
+    background-color: var(--darkblue-background-color);
+    color: #fff;
+    text-transform: capitalize;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 1s;
+}
+.comment-buttons  button i{margin-right: 10px;}
+.comment_details{
+    display: flex;
+    margin-top: 20px;
+}
+#user_letter{
+    background-color: var(--light-background-color);
+    padding: 6px 12px;
+    border-radius: 100%;
+    font-size: 18px;
+    color: var(--blue-color);
+    margin-right: 20px;
+    position: relative;
+    z-index: 1;
+}
+#user_name{
+    font-size: 14px;
+    color: var(--title-color);
+    display: block;
+    margin-top: -5px;
+}
+#comment_time{font-size: var(--subtitle-font-size); color: #bbb;}
+.user_massage{
+    position: relative;
+}
+.user_massage:before{
+    position: absolute;
+    content: "";
+    height: 95%;
+    width: 1px;
+    top: 20px;
+    background-color: var(--light-color);
+    left: -40px;
+}
+.user_massage p{
+    font-size: 12px;
+    color: #aaa;
+    line-height: 25px;
+    width: 95%;
 }

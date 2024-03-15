@@ -17,8 +17,13 @@
 --box-border:1px solid #ddd;
 --light-background-color:#eeeef9;
 --round-border-radius: 20px;
---page-font-size:23px;
+
+/* --border-color: #ddd;
+--container-color: white; 
+  --page-font-size:23px;
+  */
 }
+
 .container{
     width: 94%;
     margin: 0 auto;
@@ -35,4 +40,9 @@
     background-color: #eee;
     position: absolute;
     padding:0 20px;
+}
+.comments_size{
+    font-size: 14px;
+    color: var(--subheader-font-size);
+    font-weight: 500;
 }

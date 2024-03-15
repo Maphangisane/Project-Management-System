@@ -1,0 +1,128 @@
+.guide-section{
+    background-color: #fff;
+    height: 100vh;
+    margin: 15px auto;
+    padding: 10px;
+    font-family: Roboto, sans-serif;
+}
+.Header_section{
+    font-family: Roboto, sans-serif;
+    margin-top: 3rem;
+}
+.Header_section span{
+    text-transform: uppercase;
+    background-color: var(--light-background-color);
+    font-size: var(--subtitle-font-size);
+    padding: 10px 15px;
+    border-radius: var(--round-border-radius);
+}
+.Header_section h1{
+    font-weight: var(--header-font-weight);
+    font-family: Roboto, sans-serif;
+    font-size: 35px;
+    line-height: 30px;
+    color: var(--title-color);
+}
+#Paragraph_section{
+    font-size: var(--subheader-font-size);
+    line-height: 22px;
+    width: 60%;
+    color: #777;
+    margin-bottom: 4rem;
+}
+#steps_title{
+    margin-bottom: 5rem;
+    font-size: 16px;
+    font-weight: var(--header-font-weight);
+}
+.Cards_section{
+    display: flex;
+}
+.Cards_section .Cards{
+    width: 24%;
+    background-color: white;
+    border: var(--box-border);
+    border-radius: var(--round-border-radius);
+    padding: 25px 20px;
+    position: relative;
+    margin-right: 25px;
+}
+.Cards_section .special{
+    background-color:var(--light-background-color);
+}
+.Cards_section .Cards::before{
+    content: "";
+    height: 1px;
+    width: 100%;
+    left: 25%;
+    top: -2rem;
+    position: absolute;
+    border-top: 1px dashed #eee;
+}
+.Cards_section .Cards:last-child::before{
+    display: none;
+}
+.Cards_section .Cards .icon{
+    position: absolute;
+    top: -3rem;
+    background-color: white;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: var(--box-border);
+}
+.Cards_section .Cards .icon i{
+    color: var(--blue-color);
+    font-size: 20px;
+}
+.Cards_section .Cards h4{
+    font-size: 16px;
+    font-weight: var(--header-font-weight);
+    color: var(--title-color);
+    text-transform: capitalize;
+}
+.Cards_section .Cards p{
+    font-size: 12px;
+    line-height: 20px;
+    color: #666;
+}
+
+.button_section button{
+    border-radius: var(--round-border-radius);
+    border: none;
+    background-color: var(--blue-color);
+    color: white;
+    font-weight: var(--header-font-weight);
+    cursor: pointer;
+    margin-top: 3rem;
+    padding: 14px 2rem;
+}
+/* .dashed-line-1 {
+    border-top: 2px dashed var(--border-color);
+    width: 24.5rem;
+    position: absolute;
+    top: 50%;
+    left: calc(14% + 90px);
+    transform: translateY(-50%);
+    margin-top: 1rem;
+    min-width: 1rem;
+  } */
+  /* .dashed-line-2 {
+    border-top: 2px dashed var(--border-color);
+    width: 24.5rem;
+    position: absolute;
+    top: 50%;
+    left: calc(35% + 280px);
+    transform: translateY(-50%);
+    margin-top: 1rem;
+    min-width: 1rem;
+  } */
+  /* @media (max-width: 1900px) {
+    .dashed-line-1,
+    .dashed-line-2 {
+      display: none;
+    }
+  } */
