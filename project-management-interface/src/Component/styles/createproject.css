@@ -1,64 +1,52 @@
 .create-project-section{
-    background-color: var(--container-color);
+    background-color: #fff;
     height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
     margin: 1rem auto;
+    font-family: Roboto, sans-serif;
 }
 .Create_Project_Header{
-    margin-top: 4rem;
-    margin-left: 2rem;
-    margin: 30px 60px;
-}
-.Create_Project_Header h1{
     font-family: Roboto, sans-serif;
-    font-weight:  var(--header-font-weight);   
+    font-weight:  var(--header-font-weight); 
+    margin-top: 3rem;  
 }
 .Create_Project_Para{
-    margin: 10px 60px;
-    width: 80%;
+    font-size: 12px;
+    line-height: 22px;
+    width: 70%;
+    color: #777;
+    margin-bottom: 4rem;    
 }
-.Create_Project_Para p{
-    font-family: Roboto, sans-serif;
-    font-weight:  var(--header-font-weight);  
-}
-
-.Form_Title_section{
-    margin: 10px 60px;
-}
-.create-project-section .Form_Title_section p{
-    font-size: 2rem;
-    font-family: Roboto, sans-serif;
-}
-.Form_Description_section{
-    margin: 10px 60px;
-}
-.create-project-section .Form_Description_section p{
-    font-size: 2rem;
+.create-project-section .Form_Title_section p, .Form_Description_section p{
+    font-size: 14px;
     font-family: Roboto, sans-serif;
 }
 .Form_Title_section input {
-    height: 3rem;
-    width: 80%;
-    border-radius: var(--round-border-radius);
+    width: 90%;
+    border-radius: 10px;
     border: var(--box-border);
+    margin-bottom: 10px;
+    padding: 1rem 10px;
+}
+.Form_Title_section input::placeholder, .Form_Description_section textarea::placeholder{
+    font-size: 11px;
+    color: #bbb;
 }
 .Form_Description_section textarea{
-    height: 10rem;
-    width: 80%;
+    height: 150px;
+    padding: 1rem 10px;
+    font-family: Roboto, sans-serif;
+    width: 90%;
     border-radius: var(--round-border-radius);
     border: var(--box-border);
 }
-.create_project_button_section{
-    margin: 10px 60px;
-}
 .create-project-section .create_project_button_section button{
-    height: 3rem;
     border-radius: var(--round-border-radius);
     border: none;
     background-color: var(--blue-color);
-    width: 10rem;
-    margin: 10px auto;
-    color: var(--container-color);
+    padding: 14px 2rem;
+    color: #fff;
+    margin-top: 2rem;
 }
