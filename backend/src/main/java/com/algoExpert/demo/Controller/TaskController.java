@@ -30,9 +30,9 @@ public class TaskController {
     }
 
     //delete task
-    @DeleteMapping("/deleteTaskById/{task_id}")
-    public List<Task> deleteTaskById(@PathVariable Integer task_id){
-       return  taskService.deleteTaskById(task_id);
+    @DeleteMapping("/deleteTaskById/{task_id}/{table_id}")
+    public Table deleteTaskById(@PathVariable Integer task_id, @PathVariable Integer table_id){
+       return  taskService.deleteTaskById(task_id,table_id);
     }
 
 }

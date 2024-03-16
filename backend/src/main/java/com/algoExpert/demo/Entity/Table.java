@@ -14,7 +14,7 @@ public class Table {
     private int table_id;
     private String table_name;
 
-    @OneToMany( cascade = CascadeType.ALL )
+    @OneToMany( cascade = CascadeType.ALL, orphanRemoval = true)
     List<Task> tasks;
 
     public Table() {

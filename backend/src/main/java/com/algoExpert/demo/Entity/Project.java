@@ -14,10 +14,10 @@ public class Project {
     private String description;
 
     //    relationships
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Table> tables;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Member> memberList;
 
     @ManyToOne

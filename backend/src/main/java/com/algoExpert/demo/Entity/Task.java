@@ -19,7 +19,7 @@ public class Task {
     private String priority;
 
 //    relationships
-   @OneToMany(cascade = CascadeType.ALL)
+   @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
    List<Comment> comments;
 
     public Task() {
